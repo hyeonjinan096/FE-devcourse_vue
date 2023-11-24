@@ -1,6 +1,28 @@
 <template>
-  <h1>Hello</h1>
+  <h1 @click="updateMessage">
+    {{ newMessage }}
+  </h1>
+  <h2>{{ name }}</h2>
 </template>
+
+<script>
+export default {
+  props: {
+    message: String,
+    name: [String,Number]
+  },  //여기서 methods로 message데이터 자체 변경은 불가능 하위 -> 상위 흐름 X
+  data() {
+    return { //단순히 받기만 하고 새로운 데이터 형태는 변경은 가능 
+      newMessage: this.message 
+    }
+  },
+  methods: {
+    updateMessage() {
+      this.newMessage = 'Good~'
+    }
+  }
+}
+</script>
 
 <style scoped lang="scss">
 $color: orange;
