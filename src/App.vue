@@ -1,12 +1,12 @@
 <template>
+  <h1>
+    {{ msg }}
+  </h1>
   <HelloNew
-    v-bind="post" />
+    class="hello"
+    style="font-size: 100px;"
+    @click="msg +='!'" />
 </template>
-
-<!-- 
-  v-bind="post"를 이용해 
-  :id="post.id"
-  :title="post.title" 생략 가능  -->
 
 <script>
 import HelloNew from '~/components/HelloNew'
@@ -16,10 +16,7 @@ export default {
    },
    data() {
     return {
-      post: {
-        id: 2,
-        title: 'Hello Vue!'
-      }
+      msg: 'Hello Vue!'
     }
    }
 }
