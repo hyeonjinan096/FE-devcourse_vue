@@ -1,11 +1,12 @@
 <template>
-  <button @Click="reverseMsg">
-    Click!
-  </button>
   <HelloNew
-    :message="msg"
-    name="ss" />
+    v-bind="post" />
 </template>
+
+<!-- 
+  v-bind="post"를 이용해 
+  :id="post.id"
+  :title="post.title" 생략 가능  -->
 
 <script>
 import HelloNew from '~/components/HelloNew'
@@ -14,14 +15,11 @@ export default {
      HelloNew
    },
    data() {
-    return {msg: 'Hello Vue!'}
-   },
-   methods: {
-    reverseMsg() {
-      this.msg = this.msg
-        .split('')
-        .reverse()
-        .join('')
+    return {
+      post: {
+        id: 2,
+        title: 'Hello Vue!'
+      }
     }
    }
 }

@@ -1,28 +1,22 @@
 <template>
-  <h1 @click="updateMessage">
-    {{ newMessage }}
-  </h1>
-  <h2>{{ name }}</h2>
+  <h1>{{ id }} / {{ title }} / {{ email }}</h1>
 </template>
-
 <script>
 export default {
   props: {
-    message: String,
-    name: [String,Number]
-  },  //여기서 methods로 message데이터 자체 변경은 불가능 하위 -> 상위 흐름 X
-  data() {
-    return { //단순히 받기만 하고 새로운 데이터 형태는 변경은 가능 
-      newMessage: this.message 
-    }
-  },
-  methods: {
-    updateMessage() {
-      this.newMessage = 'Good~'
+    id: Number,
+    title: String,
+    email: {
+      type: String,
+      default: 'abc.com'   //기본값 지정
     }
   }
 }
+//(주의)
+//객체나 배열과 같은 참조형 데이터들은 함수형으로 return 해줘야한다. 
+//할당되어 주소가 동일해져 의도치 않은 수정이 발생할 수 있기 때문이다.
 </script>
+
 
 <style scoped lang="scss">
 $color: orange;
