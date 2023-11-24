@@ -1,4 +1,7 @@
 import {createApp} from 'vue'
 import App from './App.vue'
+import BtnNew from '~/components/BtnNew'
 
-createApp(App).mount('#app')
+const app = createApp(App)
+app.component('BtnNew', BtnNew)
+app.mount('#app')

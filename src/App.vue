@@ -1,32 +1,17 @@
 <template>
-  <h1
-    v-if="msg"
-    class="message" 
-    @click="log">
-    {{ msg }}
-  </h1>
-  <div></div>
-  <Hello />
+  <h1>Hello Vue!</h1>
+  <!-- 전역 컴포넌트 -->
+  <BtnNew /> 
+  <!-- 지역 컴포넌트 -->
+  <HelloNew />
 </template>
 
 <script>
-import Hello from '~/components/Hello'
-
+import HelloNew from '~/components/HelloNew'
 export default {
-    components: {
-        Hello
-    },
-    data() {
-        return {
-            msg: 'Hello webpack'
-        }
-    },
-    methods: {
-        log() {
-            window.addEventListener(),
-            document.querySelector()
-        }
-    }
+   components: {
+     HelloNew
+   }
 }
 </script>
 
