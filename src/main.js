@@ -1,7 +1,7 @@
 import {createApp} from 'vue'
-import App from './App.vue'
-import BtnNew from '~/components/BtnNew'
+import App from '~/App'
+import router from '~/routes'
 
 const app = createApp(App)
-app.component('BtnNew', BtnNew)
+app.use(router)
 app.mount('#app')
