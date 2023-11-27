@@ -2,36 +2,29 @@
   <h1>
     {{ msg }}
   </h1>
+  <h2>{{ storeMsg }} / {{ storeMessage }}</h2>
   <HelloNew />
-  <button @click="increaseCount">
-    Increase!
-  </button>  
-  <WorldNew />
-  <button @click="fetchTodo">
-    Update Msg!
-  </button>
 </template>
 
 <script>
 import HelloNew from '~/components/HelloNew'
-import WorldNew from '~/components/WorldNew'
+
 
 export default {
    components: {
-     HelloNew,
-     WorldNew
+     HelloNew
    },
    data() {
     return {
       msg: 'Hello Vue!'
     }
    },
-   methods: {
-    increaseCount() {
-      this.$store.commit('increaseCount')
+   computed: {
+    storeMsg() {
+      return this.$store.state.msg
     },
-    fetchTodo() {
-      this.$store.dispatch('fetchTodo')
+    storeMessage() {
+      return this.$store.state.message.message
     }
    }
 }
