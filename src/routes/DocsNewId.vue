@@ -1,5 +1,7 @@
 <template>
-  <h1>About.vue</h1>
+  <h1>DocsId.vue</h1>
+  <!-- 동적 파라미터 -->
+  <h2>{{ $route.params.id }}</h2> 
 </template>
 
 <script>
