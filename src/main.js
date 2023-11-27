@@ -1,7 +1,7 @@
 import {createApp} from 'vue'
 import App from './App.vue'
-import BtnNew from '~/components/BtnNew'
+import store from '~/store'
 
 const app = createApp(App)
-app.component('BtnNew', BtnNew)
-app.mount('#app')
+app.use(store) //플러그인 등록
+app.mount('#app') 
