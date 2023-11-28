@@ -5,10 +5,11 @@
     },
     "extends": [
         "eslint:recommended",
-        "plugin:vue/vue3-recommended"
+        "plugin:vue/vue3-recommended",
+        "plugin:prettier/recommended"
     ],
     "rules": {
-        "semi":["error","never"],
+        "semi":["error","always"],
         "quotes": ["error","single"],
         "vue/html-closing-bracket-newline": ["error", {
             "singleline": "never",
