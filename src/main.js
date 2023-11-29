@@ -1,7 +1,7 @@
-import {createApp} from 'vue'
-import App from './App.vue'
-import BtnNew from '~/components/BtnNew'
+import { createApp } from 'vue';
+import App from '~/App';
+import store from '~/store';
 
-const app = createApp(App)
-app.component('BtnNew', BtnNew)
-app.mount('#app')
+const app = createApp(App);
+app.use(store);
+app.mount('#app');

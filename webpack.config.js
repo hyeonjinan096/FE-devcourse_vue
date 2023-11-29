@@ -13,6 +13,7 @@ module.exports = {
     entry: './src/main.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
+        publicPath: '/',
         clean: true
     },
     module: {
@@ -42,6 +43,7 @@ module.exports = {
         })
     ],
     devServer: {
+        historyApiFallback: true,
         port: 8080 //개발 서버의 port번호 변경 가능
     }
 }
