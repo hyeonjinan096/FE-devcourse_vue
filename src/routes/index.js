@@ -1,17 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import AboutNew from './AboutNew';
 import HomeNew from './HomeNew';
 
 export default createRouter({
   history: createWebHistory(),
+  scrollBehavior: () => ({ top: 0 }),
   routes: [
     {
       path: '/',
       component: HomeNew,
-    },
-    {
-      path: '/about',
-      component: AboutNew,
     },
   ],
 });
