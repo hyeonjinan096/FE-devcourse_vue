@@ -29,7 +29,12 @@ module.exports = {
       },
       {
         test: /\.s?css$/,
-        use: ['vue-style-loader', 'css-loader', 'sass-loader'], //먼저 실행되야하는 것을 나중에 기입
+        use: [
+          'vue-style-loader',
+          'css-loader',
+          'postcss-loader',
+          'sass-loader',
+        ], //먼저 실행되야하는 것을 나중에 기입
       },
     ],
   },
