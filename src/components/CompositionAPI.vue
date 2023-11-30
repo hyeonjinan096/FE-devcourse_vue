@@ -1,32 +1,24 @@
 <script setup lang="ts">
-import { ref, computed, watch } from 'vue';
-
-const number = ref(0);
-
-const double = computed({
-  get() {
-    return number.value * 2;
-  },
-  set(newVal: number) {
-    number.value = newVal / 2;
-  },
+import { ref, reactive, watch } from 'vue';
+//반응형 데이터 만들기 2두가지 방법 : ref, reactive
+// reactive는 배열, 객체와 같은 참조형 데이터만 가능하다.
+// const userName = ref('Heropy');
+const user = reactive({
+  name: 'Heropy',
+  age: 85,
 });
 
-watch(number, (newVal, oldVal) => {
-  console.log('number: ', newVal, oldVal)
-})
+watch(
+  user,
+  (newVal) => {
+    console.log(newVal);
+  },
+);
 
-const increase = () => {
-  number.value += 1;
-};
-const assign = () => {
-  double.value = 8
-}
+console.log(user.name, user.age);
 </script>
 
 <template>
-  <button @click="increase">Increase</button>
-  <button @click="assign">Assign</button>
-  <h1>{{ number }}</h1>
-  <h2>{{ double }}</h2>
+  <input v-model="user.name" />
+  <h1>{{ user.name }}</h1>
 </template>
