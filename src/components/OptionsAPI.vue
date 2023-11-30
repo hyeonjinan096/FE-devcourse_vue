@@ -1,26 +1,42 @@
 <script lang="ts">
-import {defineComponent} from 'vue'
+import { defineComponent } from 'vue';
 export default defineComponent({
   data() {
     return {
-      count: 0,
+      number: 0,
     };
   },
-  created() {
-    console.log('Created!')
+  computed: {
+    double : {
+      //Getter
+      get() {
+        return this.number * 2;
+      },
+      //Setter
+      set(newVal:number) {
+        this.number = newVal / 2
+      }
+    },
   },
-  mounted() {
-    console.log('Mounted!')
+  watch: {
+    count(newVal, oldVal){
+      console.log('number: ', newVal, oldVal)
+    }
   },
   methods: {
     increase() {
-        this.count+=1
+      this.number+=1
+    },
+    assign() {
+      this.double = 0
     }
   }
-  }
-);
+});
 </script>
 
 <template>
-  <h1>{{ count }}</h1>
+  <button @click="increase">Increase</button>
+  <button @click="assign">Assign</button>
+  <h1>{{ number }}</h1>
+  <h2>{{ double }}</h2>
 </template>
